@@ -5,7 +5,7 @@ import { NoteStore } from './store.js';
 export function createApp(store: NoteStore, corsOrigin = '*') {
   const app = express();
   app.use(express.json());
-
+// hhaa chnages
   // The browser calls this API from a different origin (5173 in dev, 8080 in
   // a container), so the API has to say who is allowed in.
   app.use((req, res, next) => {

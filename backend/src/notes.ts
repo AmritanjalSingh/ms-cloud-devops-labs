@@ -17,7 +17,8 @@ export class ValidationError extends Error {}
  * Throws ValidationError when the input cannot be repaired.
  */
 export function buildNote(input: NoteInput, now: Date = new Date()): Note {
-  const title = typeof input.title === 'string' ? input.title : '';
+  // Add .trim() here so whitespace is removed and empty spaces become a length of 0
+  const title = typeof input.title === 'string' ? input.title.trim() : '';
   const body = typeof input.body === 'string' ? input.body.trim() : '';
 
   if (title.length === 0) throw new ValidationError('title is required');
